@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 
-const Accent = ({ children }) => (
+const Accent = ({ children }: { children: React.ReactNode }) => (
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-200">
     {children}
   </span>
@@ -43,7 +43,19 @@ const Grid = () => (
   </div>
 );
 
-const Section = ({ id, eyebrow, title, desc, children }) => (
+const Section = ({
+  id,
+  eyebrow,
+  title,
+  desc,
+  children,
+}: {
+  id?: string;
+  eyebrow?: string;
+  title?: React.ReactNode;
+  desc?: string;
+  children?: React.ReactNode;
+}) => (
   <section id={id} className="relative py-16 sm:py-20">
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <div className="max-w-2xl">
@@ -71,14 +83,22 @@ const Section = ({ id, eyebrow, title, desc, children }) => (
   </section>
 );
 
-const Stat = ({ label, value }) => (
+const Stat = ({ label, value }: { label: string; value: string }) => (
   <div className="rounded-2xl border border-amber-200/10 bg-zinc-950/30 p-5">
     <div className="text-2xl font-semibold text-zinc-50">{value}</div>
     <div className="mt-1 text-xs tracking-wide text-zinc-300/80">{label}</div>
   </div>
 );
 
-const Feature = ({ icon: Icon, title, desc }) => (
+const Feature = ({
+  icon: Icon,
+  title,
+  desc,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+}) => (
   <Card className="bg-zinc-950/40 border-amber-200/10 rounded-2xl shadow-[0_0_0_1px_rgba(255,215,100,0.06)]">
     <CardHeader className="pb-3">
       <div className="flex items-center gap-3">
@@ -94,7 +114,7 @@ const Feature = ({ icon: Icon, title, desc }) => (
   </Card>
 );
 
-const Service = ({ title, desc }) => (
+const Service = ({ title, desc }: { title: string; desc: string }) => (
   <Card className="bg-zinc-950/35 border-amber-200/10 rounded-2xl overflow-hidden">
     <CardHeader className="pb-2">
       <CardTitle className="text-base text-zinc-50">{title}</CardTitle>
