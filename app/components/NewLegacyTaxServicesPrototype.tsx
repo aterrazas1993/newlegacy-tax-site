@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ShieldCheck,
@@ -21,6 +22,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+
 
 const Accent = ({ children }: { children: React.ReactNode }) => (
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-200">
@@ -133,7 +135,7 @@ const Service = ({ title, desc }: { title: string; desc: string }) => (
 
 export default function NewLegacyTaxServicesPrototype() {
   return (
-    <div className="min-h-screen bg-black text-zinc-100">
+    <div id="top" className="min-h-screen bg-black text-zinc-100">
       <div className="relative">
         <Glow />
         <Grid />
@@ -166,27 +168,67 @@ export default function NewLegacyTaxServicesPrototype() {
         {/* Nav */}
         <header className="relative z-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="relative grid h-10 w-10 place-items-center rounded-2xl bg-amber-400/10 border border-amber-300/10">
-                <div className="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(255,215,100,0.12),0_0_36px_rgba(255,215,100,0.12)]" />
-                <ShieldCheck className="h-5 w-5 text-amber-200" />
+            <motion.a
+              href="#top"
+              aria-label="New Legacy Tax Services"
+              className="group flex items-center gap-3 select-none transition-transform duration-300 hover:-translate-y-[1px]"
+              // Framer Motion props are ignored by fallback elements.
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ y: -1 }}
+            >
+              <div className="relative flex items-center">
+                {/* Luxury glow */}
+                <div className="pointer-events-none absolute -inset-3 rounded-3xl bg-amber-300/10 blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                {/* Subtle foil sheen */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[0_0_36px_rgba(255,215,100,0.18)]" />
+                <Image
+                  src="/newlegacygold.svg"
+                  alt="New Legacy Tax Services Logo"
+                  width={220}
+                  height={56}
+                  className="h-11 sm:h-12 w-auto object-contain drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02]"
+                  priority
+                />
               </div>
-              <div className="leading-tight">
-                <div className="text-sm font-semibold tracking-wide">
-                  <span className="text-zinc-50">New Legacy</span>{" "}
-                  <span className="text-amber-200">Tax Services</span>
+
+              {/* Corporate-clean wordmark (kept for clarity/SEO) */}
+              <div className="leading-tight hidden sm:block">
+                <div className="text-sm font-semibold tracking-[0.08em] uppercase text-zinc-50">
+                  New Legacy
                 </div>
-                <div className="text-[11px] text-zinc-400/80">
-                  Clear • Accurate • Stress‑free
+                <div className="text-[11px] tracking-[0.22em] uppercase text-amber-200/80">
+                  Tax Services
                 </div>
               </div>
-            </div>
+            </motion.a>
 
             <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-300/90">
-              <a className="hover:text-zinc-50 transition" href="#services">Services</a>
-              <a className="hover:text-zinc-50 transition" href="#why">Why Us</a>
-              <a className="hover:text-zinc-50 transition" href="#process">Process</a>
-              <a className="hover:text-zinc-50 transition" href="#faq">FAQ</a>
+              <a
+                className="relative hover:text-zinc-50 transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-amber-200/70 after:transition-all after:duration-300 hover:after:w-full"
+                href="#services"
+              >
+                Services
+              </a>
+              <a
+                className="relative hover:text-zinc-50 transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-amber-200/70 after:transition-all after:duration-300 hover:after:w-full"
+                href="#why"
+              >
+                Why Us
+              </a>
+              <a
+                className="relative hover:text-zinc-50 transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-amber-200/70 after:transition-all after:duration-300 hover:after:w-full"
+                href="#process"
+              >
+                Process
+              </a>
+              <a
+                className="relative hover:text-zinc-50 transition after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-amber-200/70 after:transition-all after:duration-300 hover:after:w-full"
+                href="#faq"
+              >
+                FAQ
+              </a>
             </nav>
 
             <div className="flex items-center gap-2">
@@ -208,10 +250,10 @@ export default function NewLegacyTaxServicesPrototype() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-10 pb-12 sm:pt-16">
             <div className="grid gap-10 lg:grid-cols-12 items-start">
               <motion.div
+                className="lg:col-span-7"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="lg:col-span-7"
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge className="rounded-full bg-amber-300/10 text-amber-200 border-amber-200/20">
@@ -265,11 +307,11 @@ export default function NewLegacyTaxServicesPrototype() {
                 </div>
               </motion.div>
 
-              <motion.div
+              <MotionDiv
+                className="lg:col-span-5"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.08 }}
-                className="lg:col-span-5"
               >
                 <Card className="rounded-3xl border-amber-200/10 bg-zinc-950/35 overflow-hidden">
                   <div className="p-5 border-b border-amber-200/10 flex items-center justify-between">
@@ -354,7 +396,7 @@ export default function NewLegacyTaxServicesPrototype() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </MotionDiv>
             </div>
           </div>
 
@@ -477,34 +519,45 @@ export default function NewLegacyTaxServicesPrototype() {
             desc="A streamlined flow that keeps paperwork organized and timelines clear."
           >
             <div className="grid gap-4 lg:grid-cols-4">
-              {[{
-                n: "01",
-                t: "Intake",
-                d: "Start with the client intake form and tell us what you need.",
-              },
-              {
-                n: "02",
-                t: "Documents",
-                d: "Bring or upload income documents, ID, and prior‑year returns.",
-              },
-              {
-                n: "03",
-                t: "Prepare",
-                d: "We prepare your return and look for deductions and credits.",
-              },
-              {
-                n: "04",
-                t: "File",
-                d: "We file accurately and on time so you can move forward with confidence.",
-              }].map((s) => (
-                <Card key={s.n} className="rounded-2xl border-amber-200/10 bg-zinc-950/30">
+              {[
+                {
+                  n: "01",
+                  t: "Intake",
+                  d: "Start with the client intake form and tell us what you need.",
+                },
+                {
+                  n: "02",
+                  t: "Documents",
+                  d: "Bring or upload income documents, ID, and prior‑year returns.",
+                },
+                {
+                  n: "03",
+                  t: "Prepare",
+                  d: "We prepare your return and look for deductions and credits.",
+                },
+                {
+                  n: "04",
+                  t: "File",
+                  d: "We file accurately and on time so you can move forward with confidence.",
+                },
+              ].map((s) => (
+                <Card
+                  key={s.n}
+                  className="rounded-2xl border-amber-200/10 bg-zinc-950/30"
+                >
                   <CardContent className="p-5">
                     <div className="flex items-center justify-between">
-                      <div className="text-xs tracking-[0.2em] text-amber-200/80">{s.n}</div>
+                      <div className="text-xs tracking-[0.2em] text-amber-200/80">
+                        {s.n}
+                      </div>
                       <div className="h-8 w-8 rounded-2xl bg-amber-400/10 border border-amber-300/10" />
                     </div>
-                    <div className="mt-4 text-base font-medium text-zinc-50">{s.t}</div>
-                    <div className="mt-2 text-sm text-zinc-300/90 leading-relaxed">{s.d}</div>
+                    <div className="mt-4 text-base font-medium text-zinc-50">
+                      {s.t}
+                    </div>
+                    <div className="mt-2 text-sm text-zinc-300/90 leading-relaxed">
+                      {s.d}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -513,7 +566,9 @@ export default function NewLegacyTaxServicesPrototype() {
             <div className="mt-8 rounded-3xl border border-amber-200/10 bg-black/35 p-6">
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div>
-                  <div className="text-sm font-medium text-zinc-50">Tax services made easy</div>
+                  <div className="text-sm font-medium text-zinc-50">
+                    Tax services made easy
+                  </div>
                   <div className="mt-1 text-xs text-zinc-400">
                     Clear steps, clear timelines, and quick responses.
                   </div>
@@ -555,10 +610,15 @@ export default function NewLegacyTaxServicesPrototype() {
                   a: "Yes—New Legacy assists with LLC formation and EIN registration to help you start on the right track.",
                 },
               ].map((item) => (
-                <Card key={item.q} className="rounded-2xl border-amber-200/10 bg-zinc-950/30">
+                <Card
+                  key={item.q}
+                  className="rounded-2xl border-amber-200/10 bg-zinc-950/30"
+                >
                   <CardContent className="p-5">
                     <div className="text-sm font-medium text-zinc-50">{item.q}</div>
-                    <div className="mt-2 text-sm text-zinc-300/90 leading-relaxed">{item.a}</div>
+                    <div className="mt-2 text-sm text-zinc-300/90 leading-relaxed">
+                      {item.a}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -598,7 +658,9 @@ export default function NewLegacyTaxServicesPrototype() {
                         <MapPin className="h-4 w-4 text-amber-200" />
                         Location
                       </div>
-                      <p className="mt-2 text-sm text-zinc-300/90">Houston, TX (Virtual nationwide)</p>
+                      <p className="mt-2 text-sm text-zinc-300/90">
+                        Houston, TX (Virtual nationwide)
+                      </p>
                     </div>
                     <div className="rounded-2xl border border-amber-200/10 bg-black/35 p-5">
                       <div className="flex items-center gap-2 text-sm font-medium text-zinc-50">
@@ -612,7 +674,9 @@ export default function NewLegacyTaxServicesPrototype() {
                         <Mail className="h-4 w-4 text-amber-200" />
                         Email
                       </div>
-                      <p className="mt-2 text-sm text-zinc-300/90">oscarcortes@newlegacyfinancial.net</p>
+                      <p className="mt-2 text-sm text-zinc-300/90">
+                        oscarcortes@newlegacyfinancial.net
+                      </p>
                     </div>
                   </div>
                 </div>
