@@ -307,7 +307,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 </div>
               </motion.div>
 
-              <MotionDiv
+              <motion.div
                 className="lg:col-span-5"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -396,7 +396,7 @@ export default function NewLegacyTaxServicesPrototype() {
                     </div>
                   </div>
                 </Card>
-              </MotionDiv>
+              </motion.div>
             </div>
           </div>
 
