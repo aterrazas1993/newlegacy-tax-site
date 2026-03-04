@@ -102,7 +102,7 @@ function Icon({
   return (
     <span
       className={cx(
-        "nlt-icon inline-flex h-5 w-5 shrink-0 items-center justify-center text-amber-200",
+        "nlt-icon relative z-10 inline-flex h-5 w-5 shrink-0 items-center justify-center text-amber-200",
         className
       )}
       aria-hidden
@@ -389,6 +389,7 @@ export default function NewLegacyTaxServicesPrototype() {
         .nlt-gold-btn:hover{ transform: translateY(-1px); filter:saturate(1.12) brightness(1.02); }
         .nlt-gold-btn:active{ transform: translateY(0px) scale(.99); }
 
+        .nlt-icon{position:relative;z-index:1;}
         .nlt-icon svg{width:100%;height:100%;display:block;}
 
         .nlt-btn-shine{
