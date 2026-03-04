@@ -48,16 +48,19 @@ function Button({
   variant?: "solid" | "outline";
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl px-4 h-11 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.35)]";
+    "relative isolate inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl px-4 h-11 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.35)]";
   const solid = "nlt-gold-btn";
   const outline =
     "border border-amber-200/20 bg-zinc-950/30 text-zinc-100 hover:bg-zinc-900/40";
+
   return (
     <button
       className={cx(base, variant === "outline" ? outline : solid, className)}
       {...props}
     >
-      {children}
+      <span className="relative z-10 inline-flex items-center justify-center gap-2">
+        {children}
+      </span>
       <span aria-hidden className="nlt-btn-shine" />
     </button>
   );
@@ -99,7 +102,7 @@ function Icon({
   return (
     <span
       className={cx(
-        "inline-flex h-5 w-5 items-center justify-center text-amber-200",
+        "nlt-icon inline-flex h-5 w-5 shrink-0 items-center justify-center text-amber-200",
         className
       )}
       aria-hidden
@@ -386,7 +389,10 @@ export default function NewLegacyTaxServicesPrototype() {
         .nlt-gold-btn:hover{ transform: translateY(-1px); filter:saturate(1.12) brightness(1.02); }
         .nlt-gold-btn:active{ transform: translateY(0px) scale(.99); }
 
+        .nlt-icon svg{width:100%;height:100%;display:block;}
+
         .nlt-btn-shine{
+          z-index:0;
           position:absolute;
           inset:-40% auto -40% -60%;
           width:52%;
