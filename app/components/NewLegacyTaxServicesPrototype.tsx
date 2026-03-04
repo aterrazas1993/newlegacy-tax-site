@@ -1,4 +1,11 @@
-import React from "react";
+"use client";
+
+import type {
+  ButtonHTMLAttributes,
+  InputHTMLAttributes,
+  ReactNode,
+} from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Canvas-preview version (pure React)
@@ -16,19 +23,19 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Card({ className, children }: { className?: string; children: React.ReactNode }) {
+function Card({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cx("rounded-2xl border", className)}>{children}</div>;
 }
 
-function CardHeader({ className, children }: { className?: string; children: React.ReactNode }) {
+function CardHeader({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cx("p-5", className)}>{children}</div>;
 }
 
-function CardContent({ className, children }: { className?: string; children: React.ReactNode }) {
+function CardContent({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cx("p-5", className)}>{children}</div>;
 }
 
-function CardTitle({ className, children }: { className?: string; children: React.ReactNode }) {
+function CardTitle({ className, children }: { className?: string; children: ReactNode }) {
   return <div className={cx("font-semibold", className)}>{children}</div>;
 }
 
@@ -37,12 +44,12 @@ function Button({
   variant,
   children,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & {
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "solid" | "outline";
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl px-4 h-11 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-amber-200/30";
-  const solid = "bg-amber-300 text-black hover:bg-amber-200";
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl px-4 h-11 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.35)]";
+  const solid = "nlt-gold-btn";
   const outline =
     "border border-amber-200/20 bg-zinc-950/30 text-zinc-100 hover:bg-zinc-900/40";
   return (
@@ -51,11 +58,12 @@ function Button({
       {...props}
     >
       {children}
+      <span aria-hidden className="nlt-btn-shine" />
     </button>
   );
 }
 
-function Badge({ className, children }: { className?: string; children: React.ReactNode }) {
+function Badge({ className, children }: { className?: string; children: ReactNode }) {
   return (
     <span
       className={cx(
@@ -68,7 +76,7 @@ function Badge({ className, children }: { className?: string; children: React.Re
   );
 }
 
-function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
+function Input({ className, ...props }: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       className={cx(
@@ -85,7 +93,7 @@ function Icon({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (
@@ -205,8 +213,8 @@ const BadgeCheckI = (p: { className?: string }) => (
 );
 
 // ---------- helpers ----------
-const Accent = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-200">
+const Accent = ({ children }: { children: ReactNode }) => (
+  <span className="nlt-gold-text">
     {children}
   </span>
 );
@@ -235,9 +243,9 @@ const Section = ({
 }: {
   id?: string;
   eyebrow?: string;
-  title?: React.ReactNode;
+  title?: ReactNode;
   desc?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) => (
   <section id={id} className="relative py-16 sm:py-20">
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -274,7 +282,7 @@ const Feature = ({
   title,
   desc,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   desc: string;
 }) => (
@@ -308,9 +316,9 @@ const Service = ({ title, desc }: { title: string; desc: string }) => (
 );
 
 export default function NewLegacyTaxServicesPrototype() {
-  const [runIntro, setRunIntro] = React.useState(false);
+  const [runIntro, setRunIntro] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Only animate the first visit per session.
     try {
       const key = "nlt_intro_v1";
@@ -327,12 +335,68 @@ export default function NewLegacyTaxServicesPrototype() {
     <div id="top" className="min-h-screen bg-black text-zinc-100">
       {/* Required intro animations (CSS) — canvas safe */}
       <style>{`
+        /* Intro */
         @keyframes nlt-fade-down { from { opacity: 0; transform: translate3d(0,-6px,0);} to { opacity: 1; transform: translate3d(0,0,0);} }
         @keyframes nlt-fade-up { from { opacity: 0; transform: translate3d(0,14px,0);} to { opacity: 1; transform: translate3d(0,0,0);} }
         @keyframes nlt-fade-up-2 { from { opacity: 0; transform: translate3d(0,16px,0);} to { opacity: 1; transform: translate3d(0,0,0);} }
         .nlt-anim-nav { animation: nlt-fade-down .5s ease-out both; }
         .nlt-anim-hero-left { animation: nlt-fade-up .6s ease-out both; }
         .nlt-anim-hero-right { animation: nlt-fade-up-2 .7s ease-out .08s both; }
+
+        /* Rolex gold */
+        :root{
+          --g-deep:#5a420f;
+          --g-anti:#b8860b;
+          --g-core:#d4af37;
+          --g-hi:#f2d36b;
+          --g-spec:#fff3b0;
+        }
+
+        @keyframes nlt-gold-text { 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
+        .nlt-gold-text{
+          background-image: linear-gradient(90deg,
+            var(--g-deep) 0%,
+            var(--g-anti) 18%,
+            var(--g-core) 32%,
+            var(--g-spec) 46%,
+            var(--g-hi) 55%,
+            var(--g-spec) 64%,
+            var(--g-core) 78%,
+            var(--g-anti) 92%,
+            var(--g-deep) 100%
+          );
+          background-size: 200% 100%;
+          -webkit-background-clip:text;
+          background-clip:text;
+          color: transparent;
+          text-shadow: 0 0 18px rgba(212,175,55,.18);
+          animation: nlt-gold-text 3.9s linear infinite;
+        }
+
+        @keyframes nlt-shine { 0%{transform:translateX(-140%) skewX(-18deg);opacity:0;} 10%{opacity:.65;} 26%{opacity:0;} 100%{transform:translateX(240%) skewX(-18deg);opacity:0;} }
+        .nlt-gold-btn{
+          position:relative;
+          overflow:hidden;
+          color:#060606;
+          background-image: linear-gradient(90deg,var(--g-deep) 0%, var(--g-core) 26%, var(--g-spec) 50%, var(--g-core) 74%, var(--g-deep) 100%);
+          box-shadow: 0 12px 34px rgba(0,0,0,.58), 0 0 0 1px rgba(212,175,55,.18) inset;
+          filter:saturate(1.05);
+          transition: transform .22s ease, filter .22s ease;
+        }
+        .nlt-gold-btn:hover{ transform: translateY(-1px); filter:saturate(1.12) brightness(1.02); }
+        .nlt-gold-btn:active{ transform: translateY(0px) scale(.99); }
+
+        .nlt-btn-shine{
+          position:absolute;
+          inset:-40% auto -40% -60%;
+          width:52%;
+          background: linear-gradient(90deg,transparent 0%,rgba(255,243,176,.12) 35%,rgba(255,243,176,.75) 50%,rgba(255,243,176,.12) 65%,transparent 100%);
+          filter: blur(1px);
+          opacity:0;
+          pointer-events:none;
+          transform: translateX(-140%) skewX(-18deg);
+        }
+        .nlt-gold-btn:hover .nlt-btn-shine{ opacity:1; animation:nlt-shine 1.55s ease-in-out; }
       `}</style>
 
       <div className="relative">
