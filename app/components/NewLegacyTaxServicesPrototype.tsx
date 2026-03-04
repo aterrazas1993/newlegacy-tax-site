@@ -440,7 +440,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[0_0_36px_rgba(255,215,100,0.18)]" />
                 {/* Canvas-safe image (use the hosted SVG URL or data URI if you want in preview) */}
                 <img
-                  src="https://raw.githubusercontent.com/placeholder/placeholder/main/newlegacygold.svg"
+                  src="/newlegacygold.svg"
                   alt="New Legacy Tax Services Logo"
                   style={{ height: 48, width: "auto" }}
                   className="drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02]"
