@@ -387,7 +387,7 @@ function Service({ title, desc }: { title: string; desc: string }) {
   );
 }
 
-export default function Page() {
+export default function NewLegacyTaxServicesPrototype() {
   const [runIntro, setRunIntro] = useState(false);
 
   useEffect(() => {
@@ -632,8 +632,9 @@ export default function Page() {
                       <SparkleI className="h-4 w-4" />
                       <div className="text-sm font-medium text-zinc-50">Client Intake</div>
                     </div>
-                    <Badge className="nlt-gold-badge">Fast + organized</Badge>
+                    <Badge className="nlt-gold-badge">Secure handoff</Badge>
                   </div>
+
                   <div className="space-y-3 p-5">
                     <div>
                       <label className="text-xs text-zinc-400">Full name</label>
@@ -642,6 +643,7 @@ export default function Page() {
                         className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
                       />
                     </div>
+
                     <div>
                       <label className="text-xs text-zinc-400">Email</label>
                       <Input
@@ -649,6 +651,7 @@ export default function Page() {
                         className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
                       />
                     </div>
+
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="text-xs text-zinc-400">Service</label>
@@ -658,17 +661,43 @@ export default function Page() {
                         />
                       </div>
                       <div>
-                        <label className="text-xs text-zinc-400">Preferred</label>
+                        <label className="text-xs text-zinc-400">Phone</label>
                         <Input
-                          placeholder="Virtual"
+                          placeholder="(832) 555-1212"
                           className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
                         />
                       </div>
                     </div>
 
-                    <div className="flex gap-3 pt-2">
-                      <Button className="flex-1">Submit Intake</Button>
-                      <Button variant="outline">Call Us</Button>
+                    <div className="pt-2">
+                      <a
+                        href="https://form.jotform.com/oscarcortes/NLF"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <Button className="w-full">
+                          Continue Secure Intake{" "}
+                          <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+                        </Button>
+                      </a>
+                    </div>
+
+                    <div className="rounded-2xl border border-amber-200/10 bg-black/25 p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="grid h-9 w-9 place-items-center rounded-2xl border border-amber-300/10 bg-amber-400/10">
+                          <LockI className="h-4 w-4" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-zinc-50">
+                            Start here, finish securely
+                          </div>
+                          <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                            Fill out a few basics here, then continue your full intake on our
+                            protected Jotform.
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="mt-4 rounded-2xl border border-amber-200/10 bg-black/35 p-4">
@@ -697,7 +726,7 @@ export default function Page() {
                     </div>
 
                     <div className="text-[11px] text-zinc-500">
-                      Replace buttons with your actual intake and contact links.
+                      You’ll continue on our secure intake form to complete the full process.
                     </div>
                   </div>
                 </Card>
