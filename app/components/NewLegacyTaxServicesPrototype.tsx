@@ -279,15 +279,24 @@ function Glow() {
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
       <div
         className="absolute -top-40 left-1/2 h-[540px] w-[540px] -translate-x-1/2 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(0,0,0,0) 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(0,0,0,0) 70%)",
+        }}
       />
       <div
         className="absolute -bottom-52 right-10 h-[520px] w-[520px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(184,134,11,0.20) 0%, rgba(0,0,0,0) 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(184,134,11,0.20) 0%, rgba(0,0,0,0) 70%)",
+        }}
       />
       <div
         className="absolute left-10 top-24 h-[360px] w-[360px] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(255,243,176,0.12) 0%, rgba(0,0,0,0) 72%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,243,176,0.12) 0%, rgba(0,0,0,0) 72%)",
+        }}
       />
     </div>
   );
@@ -327,8 +336,12 @@ function Section({
               </p>
             </div>
           ) : null}
-          {title ? <h2 className="text-2xl font-semibold text-zinc-50 sm:text-3xl">{title}</h2> : null}
-          {desc ? <p className="mt-3 text-sm leading-relaxed text-zinc-300/90 sm:text-base">{desc}</p> : null}
+          {title ? (
+            <h2 className="text-2xl font-semibold text-zinc-50 sm:text-3xl">{title}</h2>
+          ) : null}
+          {desc ? (
+            <p className="mt-3 text-sm leading-relaxed text-zinc-300/90 sm:text-base">{desc}</p>
+          ) : null}
         </div>
         <div className="mt-10">{children}</div>
       </div>
@@ -447,6 +460,7 @@ export default function NewLegacyTaxServicesPrototype() {
           26% { opacity: 0; }
           100% { transform: translateX(240%) skewX(-18deg); opacity: 0; }
         }
+
         .nlt-gold-btn {
           position: relative;
           overflow: hidden;
@@ -456,6 +470,7 @@ export default function NewLegacyTaxServicesPrototype() {
           filter: saturate(1.05);
           transition: transform .22s ease, filter .22s ease;
         }
+
         .nlt-gold-btn:hover { transform: translateY(-1px); filter: saturate(1.12) brightness(1.02); }
         .nlt-gold-btn:active { transform: translateY(0) scale(.99); }
 
@@ -470,6 +485,7 @@ export default function NewLegacyTaxServicesPrototype() {
           transform: translateX(-140%) skewX(-18deg);
           z-index: 0;
         }
+
         .nlt-gold-btn:hover .nlt-btn-shine { opacity: 1; animation: nlt-shine 1.55s ease-in-out; }
 
         .nlt-gold-badge {
@@ -557,9 +573,15 @@ export default function NewLegacyTaxServicesPrototype() {
             </nav>
 
             <div className="flex items-center gap-2">
-              <Button variant="outline" className="hidden sm:inline-flex">
-                Client Intake
-              </Button>
+              <a
+                href="https://form.jotform.com/oscarcortes/NLF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex"
+              >
+                <Button variant="outline">Client Intake</Button>
+              </a>
+
               <Button>
                 File Now <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
               </Button>
@@ -592,10 +614,17 @@ export default function NewLegacyTaxServicesPrototype() {
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Button>
-                    Start Client Intake{" "}
-                    <LockI className="h-4 w-4 text-current drop-shadow-none" />
-                  </Button>
+                  <a
+                    href="https://form.jotform.com/oscarcortes/NLF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button>
+                      Start Client Intake{" "}
+                      <LockI className="h-4 w-4 text-current drop-shadow-none" />
+                    </Button>
+                  </a>
+
                   <Button variant="outline">
                     Explore Services{" "}
                     <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
@@ -839,10 +868,26 @@ export default function NewLegacyTaxServicesPrototype() {
           >
             <div className="grid gap-4 lg:grid-cols-4">
               {[
-                { n: "01", t: "Intake", d: "Start with the client intake form and tell us what you need." },
-                { n: "02", t: "Documents", d: "Bring or upload income documents, ID, and prior-year returns." },
-                { n: "03", t: "Prepare", d: "We prepare your return and look for deductions and credits." },
-                { n: "04", t: "File", d: "We file accurately and on time so you can move forward with confidence." },
+                {
+                  n: "01",
+                  t: "Intake",
+                  d: "Start with the client intake form and tell us what you need.",
+                },
+                {
+                  n: "02",
+                  t: "Documents",
+                  d: "Bring or upload income documents, ID, and prior-year returns.",
+                },
+                {
+                  n: "03",
+                  t: "Prepare",
+                  d: "We prepare your return and look for deductions and credits.",
+                },
+                {
+                  n: "04",
+                  t: "File",
+                  d: "We file accurately and on time so you can move forward with confidence.",
+                },
               ].map((step) => (
                 <Card key={step.n} className="rounded-2xl border-amber-200/10 bg-zinc-950/30">
                   <CardContent className="p-5">
@@ -928,7 +973,14 @@ export default function NewLegacyTaxServicesPrototype() {
                       </p>
                     </div>
                     <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
-                      <Button>Start Client Intake</Button>
+                      <a
+                        href="https://form.jotform.com/oscarcortes/NLF"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button>Start Client Intake</Button>
+                      </a>
+
                       <Button variant="outline">Call 832-718-3887</Button>
                     </div>
                   </div>
@@ -939,7 +991,9 @@ export default function NewLegacyTaxServicesPrototype() {
                         <PinI className="h-4 w-4" />
                         Location
                       </div>
-                      <p className="mt-2 text-sm text-zinc-300/90">Houston, TX (Virtual nationwide)</p>
+                      <p className="mt-2 text-sm text-zinc-300/90">
+                        Houston, TX (Virtual nationwide)
+                      </p>
                     </div>
                     <div className="rounded-2xl border border-amber-200/10 bg-black/35 p-5">
                       <div className="flex items-center gap-2 text-sm font-medium text-zinc-50">
