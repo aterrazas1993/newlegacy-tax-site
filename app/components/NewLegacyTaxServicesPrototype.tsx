@@ -589,6 +589,9 @@ export default function NewLegacyTaxServicesPrototype() {
                   <Badge className="border-amber-200/10 bg-zinc-950/40 text-zinc-200">
                     Bookkeeping + formation
                   </Badge>
+                  <Badge className="border-amber-200/10 bg-zinc-950/40 text-zinc-200">
+                    EIN Registration
+                  </Badge>
                 </div>
 
                 <h1 className="mt-5 text-4xl font-semibold leading-[1.05] text-zinc-50 sm:text-5xl">
