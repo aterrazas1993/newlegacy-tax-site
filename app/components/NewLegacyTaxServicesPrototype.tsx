@@ -518,7 +518,7 @@ export default function NewLegacyTaxServicesPrototype() {
             <div className="flex items-center gap-2">
               <Badge className="nlt-gold-badge">We serve all 50 states</Badge>
               <Badge className="hidden border-amber-200/10 bg-zinc-950/40 text-zinc-200 sm:inline-flex">
-                File virtually or in person
+                Virtual filings available nationwide
               </Badge>
             </div>
           </div>
@@ -847,7 +847,7 @@ export default function NewLegacyTaxServicesPrototype() {
             }
             desc="A streamlined flow that keeps paperwork organized and timelines clear."
           >
-            <div className="grid gap-4 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-3">
               {[
                 {
                   n: "01",
@@ -856,16 +856,11 @@ export default function NewLegacyTaxServicesPrototype() {
                 },
                 {
                   n: "02",
-                  t: "Documents",
-                  d: "Bring or upload income documents, ID, and prior-year returns.",
-                },
-                {
-                  n: "03",
                   t: "Prepare",
                   d: "We prepare your return and look for deductions and credits.",
                 },
                 {
-                  n: "04",
+                  n: "03",
                   t: "File",
                   d: "We file accurately and on time so you can move forward with confidence.",
                 },
@@ -955,7 +950,7 @@ export default function NewLegacyTaxServicesPrototype() {
                         Ready to <Accent>maximize your refund</Accent>?
                       </div>
                       <p className="mt-2 max-w-xl text-sm text-zinc-300/90 sm:text-base">
-                        File virtually or in person. We&apos;ll guide you through every step with
+                        File virtually from anywhere. We&apos;ll guide you through every step with
                         clarity, professionalism, and quick response.
                       </p>
                     </div>
