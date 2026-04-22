@@ -407,11 +407,11 @@ export default function NewLegacyTaxServicesPrototype() {
     try {
       const key = "nlt_intro_v1";
       if (!window.sessionStorage.getItem(key)) {
-        setRunIntro(true);
+        queueMicrotask(() => setRunIntro(true));
         window.sessionStorage.setItem(key, "1");
       }
     } catch {
-      setRunIntro(true);
+      queueMicrotask(() => setRunIntro(true));
     }
   }, []);
 
@@ -735,31 +735,6 @@ export default function NewLegacyTaxServicesPrototype() {
                       </div>
                     </div>
 
-                    <div className="mt-4 rounded-2xl border border-amber-200/10 bg-black/35 p-4">
-                      <div className="flex items-start gap-3">
-                        <div className="grid h-9 w-9 place-items-center rounded-2xl border border-amber-300/10 bg-amber-400/10">
-                          <FileI className="h-4 w-4" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-zinc-50">What to bring</div>
-                          <p className="mt-1 text-xs leading-relaxed text-zinc-400">
-                            Income docs (W-2/1099), ID, prior-year returns, and records for
-                            deductions and credits.
-                          </p>
-                          <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                            {["W-2/1099", "ID", "Prior-year", "Deductions"].map((item) => (
-                              <div
-                                key={item}
-                                className="rounded-xl border border-amber-200/10 bg-zinc-950/30 px-3 py-2 text-zinc-300"
-                              >
-                                {item}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
                     <div className="text-[11px] text-zinc-500">
                       You’ll continue on our secure intake form to complete the full process.
                     </div>
@@ -847,7 +822,7 @@ export default function NewLegacyTaxServicesPrototype() {
               <Feature
                 icon={<FileI className="h-5 w-5" />}
                 title="Clear checklist"
-                desc="We provide a detailed checklist so you know exactly what to bring and what to upload."
+                desc="We provide a detailed checklist so you know exactly which documents to upload securely."
               />
               <Feature
                 icon={<LockI className="h-5 w-5" />}
@@ -980,7 +955,7 @@ export default function NewLegacyTaxServicesPrototype() {
                         Ready to <Accent>maximize your refund</Accent>?
                       </div>
                       <p className="mt-2 max-w-xl text-sm text-zinc-300/90 sm:text-base">
-                        File virtually or in person. We'll guide you through every step with
+                        File virtually or in person. We&apos;ll guide you through every step with
                         clarity, professionalism, and quick response.
                       </p>
                     </div>
