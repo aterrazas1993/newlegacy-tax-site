@@ -579,7 +579,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex"
               >
-                <Button variant="outline">Client Intake</Button>
+                <Button variant="outline">Client intake form</Button>
               </a>
 
               <a
@@ -626,7 +626,7 @@ export default function NewLegacyTaxServicesPrototype() {
                     rel="noopener noreferrer"
                   >
                     <Button>
-                      Start Client Intake{" "}
+                      Client intake form{" "}
                       <LockI className="h-4 w-4 text-current drop-shadow-none" />
                     </Button>
                   </a>
@@ -712,7 +712,7 @@ export default function NewLegacyTaxServicesPrototype() {
                         className="block"
                       >
                         <Button className="w-full">
-                          Continue Secure Intake{" "}
+                          Client intake form{" "}
                           <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
                         </Button>
                       </a>
@@ -965,7 +965,7 @@ export default function NewLegacyTaxServicesPrototype() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Button>Start Client Intake</Button>
+                        <Button>Client intake form</Button>
                       </a>
 
                       <Button variant="outline">Call 832-718-3887</Button>
