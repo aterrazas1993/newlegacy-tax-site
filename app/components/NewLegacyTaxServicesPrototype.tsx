@@ -646,84 +646,92 @@ export default function NewLegacyTaxServicesPrototype() {
               </div>
 
               <div className={cx(runIntro && "nlt-anim-hero-right", "lg:col-span-5")}>
-                <Card className="overflow-hidden rounded-3xl border-amber-200/10 bg-zinc-950/35">
-                  <div className="flex items-center justify-between border-b border-amber-200/10 p-5">
-                    <div className="flex items-center gap-2">
-                      <SparkleI className="h-4 w-4" />
-                      <div className="text-sm font-medium text-zinc-50">Client Intake</div>
-                    </div>
-                    <Badge className="nlt-gold-badge">Secure handoff</Badge>
-                  </div>
-
-                  <div className="space-y-3 p-5">
-                    <div>
-                      <label className="text-xs text-zinc-400">Full name</label>
-                      <Input
-                        placeholder="Jordan Lee"
-                        className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
-                      />
+                <Card className="overflow-hidden rounded-3xl border-amber-200/10 bg-zinc-950/35 transition hover:border-amber-200/20 hover:bg-zinc-950/45">
+                  <a
+                    href="https://form.jotform.com/oscarcortes/NLF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block cursor-pointer"
+                    aria-label="Open client intake form"
+                  >
+                    <div className="flex items-center justify-between border-b border-amber-200/10 p-5">
+                      <div className="flex items-center gap-2">
+                        <SparkleI className="h-4 w-4" />
+                        <div className="text-sm font-medium text-zinc-50">Client Intake</div>
+                      </div>
+                      <Badge className="nlt-gold-badge">Secure handoff</Badge>
                     </div>
 
-                    <div>
-                      <label className="text-xs text-zinc-400">Email</label>
-                      <Input
-                        placeholder="jordan@company.com"
-                        className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="space-y-3 p-5">
                       <div>
-                        <label className="text-xs text-zinc-400">Service</label>
+                        <label className="text-xs text-zinc-400">Full name</label>
                         <Input
-                          placeholder="Personal tax"
-                          className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                          placeholder="Jordan Lee"
+                          readOnly
+                          className="pointer-events-none mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
                         />
                       </div>
+
                       <div>
-                        <label className="text-xs text-zinc-400">Phone</label>
+                        <label className="text-xs text-zinc-400">Email</label>
                         <Input
-                          placeholder="(832) 555-1212"
-                          className="mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                          placeholder="jordan@company.com"
+                          readOnly
+                          className="pointer-events-none mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
                         />
                       </div>
-                    </div>
 
-                    <div className="pt-2">
-                      <a
-                        href="https://form.jotform.com/oscarcortes/NLF"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        <Button className="w-full">
-                          Client intake form{" "}
-                          <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
-                        </Button>
-                      </a>
-                    </div>
-
-                    <div className="rounded-2xl border border-amber-200/10 bg-black/25 p-4">
-                      <div className="flex items-start gap-3">
-                        <div className="grid h-9 w-9 place-items-center rounded-2xl border border-amber-300/10 bg-amber-400/10">
-                          <LockI className="h-4 w-4" />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="text-xs text-zinc-400">Service</label>
+                          <Input
+                            placeholder="Personal tax"
+                            readOnly
+                            className="pointer-events-none mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                          />
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-zinc-50">
-                            Start here, finish securely
-                          </div>
-                          <p className="mt-1 text-xs leading-relaxed text-zinc-400">
-                            Fill out a few basics here, then continue your full intake on our
-                            protected Jotform.
-                          </p>
+                          <label className="text-xs text-zinc-400">Phone</label>
+                          <Input
+                            placeholder="(832) 555-1212"
+                            readOnly
+                            className="pointer-events-none mt-1 border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                          />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="text-[11px] text-zinc-500">
-                      You’ll continue on our secure intake form to complete the full process.
+                      <div className="pt-2">
+                        <div className="nlt-gold-btn group relative isolate inline-flex h-11 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-2xl px-4 text-sm font-medium text-[#060606] transition focus:outline-none focus:ring-2 focus:ring-[rgba(212,175,55,0.35)]">
+                          <span className="relative z-10 inline-flex items-center gap-2">
+                            Client intake form{" "}
+                            <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+                          </span>
+                          <span aria-hidden className="nlt-btn-shine" />
+                        </div>
+                      </div>
+
+                      <div className="rounded-2xl border border-amber-200/10 bg-black/25 p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="grid h-9 w-9 place-items-center rounded-2xl border border-amber-300/10 bg-amber-400/10">
+                            <LockI className="h-4 w-4" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-medium text-zinc-50">
+                              Start here, finish securely
+                            </div>
+                            <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                              Fill out a few basics here, then continue your full intake on our
+                              protected Jotform.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-[11px] text-zinc-500">
+                        You’ll continue on our secure intake form to complete the full process.
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </Card>
               </div>
             </div>
