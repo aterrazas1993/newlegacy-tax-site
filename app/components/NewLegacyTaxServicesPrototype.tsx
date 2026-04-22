@@ -185,24 +185,6 @@ const LockI = ({ className }: { className?: string }) => (
   </Icon>
 );
 
-const FileI = ({ className }: { className?: string }) => (
-  <Icon className={className}>
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6" />
-      <path d="M8 13h8" />
-      <path d="M8 17h8" />
-    </svg>
-  </Icon>
-);
-
 const ShieldI = ({ className }: { className?: string }) => (
   <Icon className={className}>
     <svg
@@ -818,12 +800,7 @@ export default function NewLegacyTaxServicesPrototype() {
               />
             </div>
 
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              <Feature
-                icon={<FileI className="h-5 w-5" />}
-                title="Clear checklist"
-                desc="We provide a detailed checklist so you know exactly which documents to upload securely."
-              />
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
               <Feature
                 icon={<LockI className="h-5 w-5" />}
                 title="Professional support"
@@ -915,7 +892,7 @@ export default function NewLegacyTaxServicesPrototype() {
               {[
                 {
                   q: "What documents do I need for tax preparation?",
-                  a: "Income documents (W-2s/1099s), identification, prior-year tax returns, and records of deductions or credits. We provide a detailed checklist.",
+                  a: "Income documents (W-2s/1099s), identification, prior-year tax returns, and records of deductions or credits can be uploaded securely through the intake form.",
                 },
                 {
                   q: "How long will it take to receive my refund?",
