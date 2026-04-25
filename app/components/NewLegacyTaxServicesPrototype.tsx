@@ -507,13 +507,13 @@ export default function NewLegacyTaxServicesPrototype() {
         </div>
 
         <header className="relative z-10">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+          <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <a
               href="#top"
               aria-label="New Legacy Tax Services"
               className={cx(
                 runIntro && "nlt-anim-nav",
-                "group flex select-none items-center gap-3 transition-transform duration-300 hover:-translate-y-[1px]",
+                "group flex shrink-0 select-none items-center gap-3 transition-transform duration-300 hover:-translate-y-[1px]",
               )}
             >
               <div className="relative flex items-center">
@@ -522,8 +522,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 <img
                   src="/newlegacygold.svg"
                   alt="New Legacy Tax Services Logo"
-                  style={{ height: 48, width: "auto" }}
-                  className="drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="h-12 w-auto max-w-[220px] shrink-0 drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02] sm:max-w-none"
                 />
               </div>
 
@@ -554,7 +553,7 @@ export default function NewLegacyTaxServicesPrototype() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-2">
+            <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
               <a
                 href="https://form.jotform.com/oscarcortes/NLF"
                 target="_blank"
