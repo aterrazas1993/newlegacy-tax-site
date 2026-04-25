@@ -485,11 +485,11 @@ export default function NewLegacyTaxServicesPrototype() {
         <Grid />
 
         <div className="relative z-10 border-b border-amber-200/10 bg-black/40 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6">
-            <div className="flex items-center gap-3 text-xs text-zinc-300/90">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+            <div className="flex min-w-0 items-center gap-2 text-[11px] text-zinc-300/90 sm:gap-3 sm:text-xs">
               <div className="flex items-center gap-2">
                 <PhoneI className="h-3.5 w-3.5" />
-                <span>832-718-3887</span>
+                <span className="whitespace-nowrap">832-718-3887</span>
               </div>
               <span className="hidden text-zinc-600 sm:inline">|</span>
               <div className="hidden items-center gap-2 sm:flex">
@@ -497,8 +497,10 @@ export default function NewLegacyTaxServicesPrototype() {
                 <span>oscarcortes@newlegacyfinancial.net</span>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Badge className="nlt-gold-badge">We serve all 50 states</Badge>
+            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+              <Badge className="nlt-gold-badge whitespace-nowrap px-2 py-1 text-[10px] sm:px-3 sm:text-xs">
+                We serve all 50 states
+              </Badge>
               <Badge className="hidden border-amber-200/10 bg-zinc-950/40 text-zinc-200 sm:inline-flex">
                 Virtual filings available nationwide
               </Badge>
