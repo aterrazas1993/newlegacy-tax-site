@@ -878,11 +878,11 @@ export default function NewLegacyTaxServicesPrototype() {
               />
             </div>
 
-            <div className="mt-10 grid gap-4 lg:grid-cols-2">
+            <div className="mt-10 flex flex-col gap-3">
               {serviceItems.map((service) => (
                 <Card
                   key={service.id}
-                  className="scroll-mt-28 rounded-2xl border-amber-200/10 bg-zinc-950/30"
+                  className="scroll-mt-28 rounded-2xl border-amber-200/10 bg-zinc-950/30 transition duration-300 hover:-translate-y-1 hover:border-amber-300/20 hover:bg-zinc-950/40"
                   id={service.id}
                 >
                   <CardHeader className="pb-3">
@@ -895,20 +895,29 @@ export default function NewLegacyTaxServicesPrototype() {
                   </CardHeader>
                   <CardContent className="pt-0">
                     <p className="text-sm leading-relaxed text-zinc-300/90">{service.detail}</p>
-                    <a
-                      href="https://form.jotform.com/oscarcortes/NLF"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block"
-                    >
-                      <Button className="mt-4">
-                        Client intake form{" "}
-                        <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
-                      </Button>
-                    </a>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            <div className="mt-6 flex flex-col items-start gap-3 rounded-2xl border border-amber-200/10 bg-black/25 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="text-sm font-medium text-zinc-50">Ready to get started?</div>
+                <div className="mt-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                  Use one secure intake form for any of the services above.
+                </div>
+              </div>
+              <a
+                href="https://form.jotform.com/oscarcortes/NLF"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button>
+                  Client intake form{" "}
+                  <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+                </Button>
+              </a>
             </div>
           </Section>
 
