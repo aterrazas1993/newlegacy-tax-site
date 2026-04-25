@@ -522,15 +522,15 @@ export default function NewLegacyTaxServicesPrototype() {
                 <img
                   src="/newlegacygold.svg"
                   alt="New Legacy Tax Services Logo"
-                  className="h-12 w-auto max-w-[220px] shrink-0 drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02] sm:max-w-none"
+                  className="h-10 w-auto max-w-[120px] shrink-0 drop-shadow-[0_8px_28px_rgba(255,215,100,0.15)] transition-transform duration-300 group-hover:scale-[1.02] sm:h-12 sm:max-w-[220px] sm:max-w-none"
                 />
               </div>
 
-              <div className="hidden leading-tight sm:block">
-                <div className="text-sm font-semibold uppercase tracking-[0.08em] text-zinc-50">
+              <div className="block leading-tight">
+                <div className="text-xs font-semibold uppercase tracking-[0.06em] text-zinc-50 sm:text-sm sm:tracking-[0.08em]">
                   New Legacy
                 </div>
-                <div className="text-[11px] uppercase tracking-[0.22em] text-[rgba(242,211,107,0.85)]">
+                <div className="text-[10px] uppercase tracking-[0.16em] text-[rgba(242,211,107,0.85)] sm:text-[11px] sm:tracking-[0.22em]">
                   Tax Services
                 </div>
               </div>
