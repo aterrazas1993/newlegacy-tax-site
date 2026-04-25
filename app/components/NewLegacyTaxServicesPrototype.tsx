@@ -485,23 +485,23 @@ export default function NewLegacyTaxServicesPrototype() {
         <Grid />
 
         <div className="relative z-10 border-b border-amber-200/10 bg-black/40 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-            <div className="flex min-w-0 items-center gap-2 text-[11px] text-zinc-300/90 sm:gap-3 sm:text-xs">
+          <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-4 py-2 sm:justify-between sm:px-6">
+            <div className="hidden min-w-0 items-center gap-3 text-xs text-zinc-300/90 sm:flex">
               <div className="flex items-center gap-2">
                 <PhoneI className="h-3.5 w-3.5" />
                 <span className="whitespace-nowrap">832-718-3887</span>
               </div>
-              <span className="hidden text-zinc-600 sm:inline">|</span>
-              <div className="hidden items-center gap-2 sm:flex">
+              <span className="text-zinc-600">|</span>
+              <div className="flex items-center gap-2">
                 <MailI className="h-3.5 w-3.5" />
                 <span>oscarcortes@newlegacyfinancial.net</span>
               </div>
             </div>
-            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               <Badge className="nlt-gold-badge whitespace-nowrap px-2 py-1 text-[10px] sm:px-3 sm:text-xs">
                 We serve all 50 states
               </Badge>
-              <Badge className="hidden border-amber-200/10 bg-zinc-950/40 text-zinc-200 sm:inline-flex">
+              <Badge className="border-amber-200/10 bg-zinc-950/40 px-2 py-1 text-[10px] text-zinc-200 sm:inline-flex sm:px-3 sm:text-xs">
                 Virtual filings available nationwide
               </Badge>
             </div>
@@ -621,6 +621,17 @@ export default function NewLegacyTaxServicesPrototype() {
                     Explore Services{" "}
                     <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
                   </Button>
+                </div>
+
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-zinc-300/90">
+                  <a
+                    href="tel:8327183887"
+                    className="inline-flex items-center gap-2 rounded-full border border-amber-200/10 bg-black/35 px-4 py-2 transition hover:border-amber-300/20 hover:text-zinc-50"
+                  >
+                    <PhoneI className="h-4 w-4" />
+                    <span className="whitespace-nowrap">832-718-3887</span>
+                  </a>
+                  <span className="text-xs text-zinc-500">Call for questions or quick help</span>
                 </div>
 
                 <div className="mt-10 grid max-w-xl grid-cols-3 gap-3">
