@@ -366,7 +366,50 @@ function Feature({
   );
 }
 
-function Service({ title, desc }: { title: string; desc: string }) {
+const serviceItems = [
+  {
+    title: "Personal Tax Preparation",
+    desc: "We simplify the tax process by preparing and filing your personal returns accurately while maximizing eligible deductions and credits.",
+    href: "#personal-tax",
+    id: "personal-tax",
+    detail:
+      "Ideal for individuals and families who want accurate filing, clearer guidance, and help making sure eligible deductions and credits are not overlooked.",
+  },
+  {
+    title: "Business Tax Preparation",
+    desc: "We help businesses stay compliant while strategically managing tax liabilities to support long-term growth.",
+    href: "#business-tax",
+    id: "business-tax",
+    detail:
+      "Built for business owners who need organized tax preparation, dependable compliance support, and a filing process that supports long-term growth.",
+  },
+  {
+    title: "Bookkeeping",
+    desc: "Reliable bookkeeping that keeps records organized, accurate, and ready for smarter decision-making.",
+    href: "#bookkeeping",
+    id: "bookkeeping",
+    detail:
+      "Designed to keep financial records current and accurate so reporting, tax prep, and everyday decisions are based on clean numbers.",
+  },
+  {
+    title: "LLC Formation",
+    desc: "Guidance through the LLC formation process so your business is properly structured and set up for success.",
+    href: "#llc-formation",
+    id: "llc-formation",
+    detail:
+      "A practical option for new business owners who want help choosing the right structure, handling formation steps, and getting started correctly.",
+  },
+  {
+    title: "EIN Registration",
+    desc: "We handle the IRS process to secure your EIN—your business's federal tax ID and legal foundation to operate.",
+    href: "#ein-registration",
+    id: "ein-registration",
+    detail:
+      "Helpful for businesses that need a federal tax ID to open accounts, hire employees, and move forward with the essentials of operating legally.",
+  },
+] as const;
+
+function Service({ title, desc, href }: { title: string; desc: string; href: string }) {
   return (
     <Card className="overflow-hidden rounded-2xl border-amber-200/10 bg-zinc-950/35">
       <CardHeader className="pb-2">
@@ -374,9 +417,11 @@ function Service({ title, desc }: { title: string; desc: string }) {
       </CardHeader>
       <CardContent>
         <p className="text-sm leading-relaxed text-zinc-300/90">{desc}</p>
-        <Button variant="outline" className="mt-4">
-          Learn more <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
-        </Button>
+        <a href={href} className="inline-block">
+          <Button variant="outline" className="mt-4">
+            Learn more <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+          </Button>
+        </a>
       </CardContent>
     </Card>
   );
@@ -801,26 +846,14 @@ export default function NewLegacyTaxServicesPrototype() {
             desc="Tax preparation, bookkeeping, and business setup—built to support individuals and small businesses nationwide."
           >
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <Service
-                title="Personal Tax Preparation"
-                desc="We simplify the tax process by preparing and filing your personal returns accurately while maximizing eligible deductions and credits."
-              />
-              <Service
-                title="Business Tax Preparation"
-                desc="We help businesses stay compliant while strategically managing tax liabilities to support long-term growth."
-              />
-              <Service
-                title="Bookkeeping"
-                desc="Reliable bookkeeping that keeps records organized, accurate, and ready for smarter decision-making."
-              />
-              <Service
-                title="LLC Formation"
-                desc="Guidance through the LLC formation process so your business is properly structured and set up for success."
-              />
-              <Service
-                title="EIN Registration"
-                desc="We handle the IRS process to secure your EIN—your business's federal tax ID and legal foundation to operate."
-              />
+              {serviceItems.map((service) => (
+                <Service
+                  key={service.id}
+                  title={service.title}
+                  desc={service.desc}
+                  href={service.href}
+                />
+              ))}
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -834,6 +867,39 @@ export default function NewLegacyTaxServicesPrototype() {
                 title="Outcome-focused"
                 desc="A process built around accurate filing, fewer headaches, and stronger financial outcomes."
               />
+            </div>
+
+            <div className="mt-10 grid gap-4 lg:grid-cols-2">
+              {serviceItems.map((service) => (
+                <Card
+                  key={service.id}
+                  className="scroll-mt-28 rounded-2xl border-amber-200/10 bg-zinc-950/30"
+                  id={service.id}
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between gap-4">
+                      <CardTitle className="text-base text-zinc-50">{service.title}</CardTitle>
+                      <Badge className="border-amber-200/10 bg-zinc-950/40 text-zinc-200">
+                        Service details
+                      </Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <p className="text-sm leading-relaxed text-zinc-300/90">{service.detail}</p>
+                    <a
+                      href="https://form.jotform.com/oscarcortes/NLF"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <Button className="mt-4">
+                        Client intake form{" "}
+                        <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+                      </Button>
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </Section>
 
