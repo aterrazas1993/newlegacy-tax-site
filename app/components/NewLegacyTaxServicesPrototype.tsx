@@ -4,6 +4,7 @@ import {
   useEffect,
   useState,
   type ButtonHTMLAttributes,
+  type HTMLAttributes,
   type InputHTMLAttributes,
   type ReactNode,
 } from "react";
@@ -12,8 +13,16 @@ function cx(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Card({ className, children }: { className?: string; children: ReactNode }) {
-  return <div className={cx("rounded-2xl border", className)}>{children}</div>;
+function Card({
+  className,
+  children,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & { className?: string; children: ReactNode }) {
+  return (
+    <div className={cx("rounded-2xl border", className)} {...props}>
+      {children}
+    </div>
+  );
 }
 
 function CardHeader({ className, children }: { className?: string; children: ReactNode }) {
