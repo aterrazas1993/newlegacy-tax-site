@@ -697,6 +697,21 @@ export default function NewLegacyTaxServicesPrototype() {
           </div>
         </header>
 
+        <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30 flex justify-center px-4 sm:inset-x-auto sm:right-6 sm:justify-end">
+          <a
+            href="https://form.jotform.com/oscarcortes/NLF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <div className="rounded-[28px] border border-amber-300/20 bg-black/70 p-1 shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-md">
+              <Button className="h-12 min-w-[210px] rounded-[22px] px-5 text-sm sm:min-w-[190px]">
+                File Now <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
+              </Button>
+            </div>
+          </a>
+        </div>
+
         <main className="relative z-10">
           <div className="mx-auto max-w-6xl px-4 pb-12 pt-10 sm:px-6 sm:pt-16">
             <div className="grid items-start gap-10 lg:grid-cols-12">
