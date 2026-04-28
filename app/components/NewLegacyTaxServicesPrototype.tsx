@@ -478,7 +478,10 @@ export default function NewLegacyTaxServicesPrototype() {
         body: JSON.stringify({ email }),
       });
 
-      const data = (await response.json()) as { error?: string; message?: string };
+      const responseText = await response.text();
+      const data = responseText
+        ? ((JSON.parse(responseText) as { error?: string; message?: string }) ?? {})
+        : {};
 
       if (!response.ok) {
         throw new Error(data.error ?? "Unable to subscribe right now.");
