@@ -439,6 +439,9 @@ function Service({ title, desc, href }: { title: string; desc: string; href: str
 export default function NewLegacyTaxServicesPrototype() {
   const [runIntro, setRunIntro] = useState(false);
   const [mailchimpEmail, setMailchimpEmail] = useState("");
+  const [mailchimpFullName, setMailchimpFullName] = useState("");
+  const [mailchimpPhone, setMailchimpPhone] = useState("");
+  const [mailchimpBirthday, setMailchimpBirthday] = useState("");
   const [mailchimpState, setMailchimpState] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -466,6 +469,13 @@ export default function NewLegacyTaxServicesPrototype() {
       return;
     }
 
+    const birthday = mailchimpBirthday.trim();
+    if (birthday && !/^\d{2}\/\d{2}$/.test(birthday)) {
+      setMailchimpState("error");
+      setMailchimpMessage("Enter birthday in MM/DD format.");
+      return;
+    }
+
     setMailchimpState("submitting");
     setMailchimpMessage("");
 
@@ -475,7 +485,12 @@ export default function NewLegacyTaxServicesPrototype() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          fullName: mailchimpFullName.trim(),
+          phone: mailchimpPhone.trim(),
+          birthday,
+        }),
       });
 
       const responseText = await response.text();
@@ -490,6 +505,9 @@ export default function NewLegacyTaxServicesPrototype() {
       setMailchimpState("success");
       setMailchimpMessage(data.message ?? "Thanks for subscribing.");
       setMailchimpEmail("");
+      setMailchimpFullName("");
+      setMailchimpPhone("");
+      setMailchimpBirthday("");
     } catch (error) {
       setMailchimpState("error");
       setMailchimpMessage(
@@ -1140,26 +1158,54 @@ export default function NewLegacyTaxServicesPrototype() {
 
                     <form
                       onSubmit={handleMailchimpSubscribe}
-                      className="flex w-full max-w-xl flex-col gap-3 sm:flex-row"
+                      className="flex w-full max-w-xl flex-col gap-3"
                     >
-                      <Input
-                        type="email"
-                        inputMode="email"
-                        autoComplete="email"
-                        placeholder="Enter your email"
-                        value={mailchimpEmail}
-                        onChange={(event) => setMailchimpEmail(event.target.value)}
-                        className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
-                      />
-                      <Button
-                        type="submit"
-                        className="sm:min-w-[190px]"
-                        disabled={mailchimpState === "submitting"}
-                      >
-                        {mailchimpState === "submitting"
-                          ? "Subscribing..."
-                          : "Subscribe to updates"}
-                      </Button>
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <Input
+                          type="text"
+                          autoComplete="name"
+                          placeholder="Full name"
+                          value={mailchimpFullName}
+                          onChange={(event) => setMailchimpFullName(event.target.value)}
+                          className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                        />
+                        <Input
+                          type="tel"
+                          autoComplete="tel"
+                          placeholder="Phone number"
+                          value={mailchimpPhone}
+                          onChange={(event) => setMailchimpPhone(event.target.value)}
+                          className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                        />
+                      </div>
+                      <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto]">
+                        <Input
+                          type="email"
+                          inputMode="email"
+                          autoComplete="email"
+                          placeholder="Enter your email"
+                          value={mailchimpEmail}
+                          onChange={(event) => setMailchimpEmail(event.target.value)}
+                          className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                        />
+                        <Input
+                          type="text"
+                          inputMode="numeric"
+                          placeholder="Birthday (MM/DD)"
+                          value={mailchimpBirthday}
+                          onChange={(event) => setMailchimpBirthday(event.target.value)}
+                          className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                        />
+                        <Button
+                          type="submit"
+                          className="sm:min-w-[190px]"
+                          disabled={mailchimpState === "submitting"}
+                        >
+                          {mailchimpState === "submitting"
+                            ? "Subscribing..."
+                            : "Subscribe to updates"}
+                        </Button>
+                      </div>
                     </form>
                   </div>
 
