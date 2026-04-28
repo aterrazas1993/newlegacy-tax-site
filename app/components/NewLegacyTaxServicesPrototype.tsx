@@ -438,6 +438,11 @@ function Service({ title, desc, href }: { title: string; desc: string; href: str
 
 export default function NewLegacyTaxServicesPrototype() {
   const [runIntro, setRunIntro] = useState(false);
+  const [mailchimpEmail, setMailchimpEmail] = useState("");
+  const [mailchimpState, setMailchimpState] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [mailchimpMessage, setMailchimpMessage] = useState("");
 
   useEffect(() => {
     try {
@@ -450,6 +455,45 @@ export default function NewLegacyTaxServicesPrototype() {
       queueMicrotask(() => setRunIntro(true));
     }
   }, []);
+
+  async function handleMailchimpSubscribe(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const email = mailchimpEmail.trim();
+    if (!email) {
+      setMailchimpState("error");
+      setMailchimpMessage("Enter your email to subscribe.");
+      return;
+    }
+
+    setMailchimpState("submitting");
+    setMailchimpMessage("");
+
+    try {
+      const response = await fetch("/api/mailchimp/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = (await response.json()) as { error?: string; message?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Unable to subscribe right now.");
+      }
+
+      setMailchimpState("success");
+      setMailchimpMessage(data.message ?? "Thanks for subscribing.");
+      setMailchimpEmail("");
+    } catch (error) {
+      setMailchimpState("error");
+      setMailchimpMessage(
+        error instanceof Error ? error.message : "Unable to subscribe right now.",
+      );
+    }
+  }
 
   return (
     <div id="top" className="min-h-screen bg-black text-zinc-100">
@@ -1051,7 +1095,7 @@ export default function NewLegacyTaxServicesPrototype() {
                     </div>
                   </div>
 
-                  <div className="mt-8 grid gap-4 md:grid-cols-3">
+                <div className="mt-8 grid gap-4 md:grid-cols-3">
                     <div className="rounded-2xl border border-amber-200/10 bg-black/35 p-5">
                       <div className="flex items-center gap-2 text-sm font-medium text-zinc-50">
                         <PinI className="h-4 w-4" />
@@ -1076,11 +1120,66 @@ export default function NewLegacyTaxServicesPrototype() {
                       <p className="mt-2 text-sm text-zinc-300/90">
                         oscarcortes@newlegacyfinancial.net
                       </p>
-                    </div>
                   </div>
                 </div>
 
-                <div className="border-t border-amber-200/10 bg-black/40 px-8 py-6">
+                <div className="mt-8 rounded-3xl border border-amber-200/10 bg-black/35 p-6">
+                  <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="max-w-xl">
+                      <div className="text-sm font-medium text-zinc-50">
+                        Get tax tips and updates by email
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-zinc-300/90">
+                        Join our mailing list for reminders, tax-season updates, and helpful
+                        business and filing insights.
+                      </p>
+                    </div>
+
+                    <form
+                      onSubmit={handleMailchimpSubscribe}
+                      className="flex w-full max-w-xl flex-col gap-3 sm:flex-row"
+                    >
+                      <Input
+                        type="email"
+                        inputMode="email"
+                        autoComplete="email"
+                        placeholder="Enter your email"
+                        value={mailchimpEmail}
+                        onChange={(event) => setMailchimpEmail(event.target.value)}
+                        className="border-amber-200/10 bg-black/40 text-zinc-100 placeholder:text-zinc-600"
+                      />
+                      <Button
+                        type="submit"
+                        className="sm:min-w-[190px]"
+                        disabled={mailchimpState === "submitting"}
+                      >
+                        {mailchimpState === "submitting"
+                          ? "Subscribing..."
+                          : "Subscribe to updates"}
+                      </Button>
+                    </form>
+                  </div>
+
+                  <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-xs text-zinc-500">
+                      By subscribing, you agree to receive occasional email updates. You can
+                      unsubscribe at any time.
+                    </p>
+                    {mailchimpMessage ? (
+                      <p
+                        className={cx(
+                          "text-xs",
+                          mailchimpState === "success" ? "text-emerald-300" : "text-rose-300",
+                        )}
+                      >
+                        {mailchimpMessage}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-amber-200/10 bg-black/40 px-8 py-6">
                   <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
                     <div className="text-xs text-zinc-500">
                       © {new Date().getFullYear()} New Legacy Tax Services. All rights reserved.
