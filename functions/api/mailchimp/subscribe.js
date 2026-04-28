@@ -30,12 +30,16 @@ export async function onRequestPost(context) {
       );
     }
 
+    const apiKey = env.MAILCHIMP_API_KEY.trim();
+    const audienceId = env.MAILCHIMP_AUDIENCE_ID.trim();
+    const serverPrefix = env.MAILCHIMP_SERVER_PREFIX.trim();
+
     const response = await fetch(
-      `https://${env.MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${env.MAILCHIMP_AUDIENCE_ID}/members`,
+      `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${audienceId}/members`,
       {
         method: "POST",
         headers: {
-          Authorization: `Basic ${btoa(`anystring:${env.MAILCHIMP_API_KEY}`)}`,
+          Authorization: `Basic ${btoa(`anystring:${apiKey}`)}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
