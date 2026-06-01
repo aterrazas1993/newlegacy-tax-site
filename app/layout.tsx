@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "New Legacy Tax Services",
   description: "Virtual tax preparation, bookkeeping, and business setup services.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
