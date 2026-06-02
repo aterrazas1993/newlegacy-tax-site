@@ -740,17 +740,6 @@ export default function NewLegacyTaxServicesPrototype() {
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href="https://form.jotform.com/oscarcortes/NLF"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button>
-                      Client intake form{" "}
-                      <LockI className="h-4 w-4 text-current drop-shadow-none" />
-                    </Button>
-                  </a>
-
                   <Button variant="outline">
                     Explore Services{" "}
                     <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
