@@ -683,16 +683,6 @@ export default function NewLegacyTaxServicesPrototype() {
               >
                 <Button variant="outline">Client intake form</Button>
               </a>
-
-              <a
-  href="https://form.jotform.com/oscarcortes/NLF"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button>
-    File Now <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
-  </Button>
-</a>
             </div>
           </div>
         </header>
@@ -1041,15 +1031,6 @@ export default function NewLegacyTaxServicesPrototype() {
                     Clear steps, clear timelines, and quick responses.
                   </div>
                 </div>
-                <a
-  href="https://form.jotform.com/oscarcortes/NLF"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button>
-    File Now <ArrowI className="h-4 w-4 text-current drop-shadow-none" />
-  </Button>
-</a>
               </div>
             </div>
           </Section>
