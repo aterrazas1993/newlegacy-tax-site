@@ -27,33 +27,59 @@ const localBusinessSchema = {
   image: "https://newlegacytaxservice.com/icon.png",
   telephone: "+1-832-718-3887",
   email: "oscarcortes@newlegacyfinancial.net",
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Houston",
-    },
-    {
-      "@type": "State",
-      name: "Texas",
-    },
-    {
-      "@type": "Country",
-      name: "United States",
-    },
-  ],
+  description:
+    "Houston tax services for individuals and small businesses, with virtual nationwide support for tax preparation, bookkeeping, LLC formation, and EIN registration.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Houston",
     addressRegion: "TX",
     addressCountry: "US",
   },
-  serviceType: [
-    "Tax preparation",
-    "Business tax preparation",
-    "Bookkeeping",
-    "LLC formation",
-    "EIN registration",
-  ],
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Tax & Business Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Personal Tax Preparation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Business Tax Preparation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Bookkeeping",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "LLC Formation",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "EIN Registration",
+        },
+      },
+    ],
+  },
 };
 
 export default function Page() {
