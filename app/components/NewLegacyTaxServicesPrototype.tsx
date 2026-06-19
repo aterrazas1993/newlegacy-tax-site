@@ -720,13 +720,13 @@ export default function NewLegacyTaxServicesPrototype() {
                 </div>
 
                 <h1 className="mt-5 text-4xl font-semibold leading-[1.05] text-zinc-50 sm:text-5xl">
-                  Build a <Accent>stronger financial future</Accent>—starting this tax season.
+                  Houston <Accent>tax services</Accent> for a stronger financial future.
                 </h1>
 
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300/90 sm:text-lg">
-                  Our goal is to provide accurate, affordable, and stress-free tax preparation for
-                  individuals and small businesses—ensuring compliance while maximizing your
-                  financial outcomes and peace of mind.
+                  Based in Houston, New Legacy Tax Services provides accurate, affordable, and
+                  stress-free tax preparation for individuals and small businesses, along with
+                  bookkeeping, LLC formation, and EIN registration support.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -911,7 +911,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 Services designed to keep things <Accent>easy</Accent>.
               </>
             }
-            desc="Tax preparation, bookkeeping, and business setup—built to support individuals and small businesses nationwide."
+            desc="Houston tax preparation, bookkeeping, and business setup support for individuals, entrepreneurs, and small businesses."
           >
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {serviceItems.map((service) => (
@@ -1108,7 +1108,7 @@ export default function NewLegacyTaxServicesPrototype() {
                         Location
                       </div>
                       <p className="mt-2 text-sm text-zinc-300/90">
-                        Houston, TX (Virtual nationwide)
+                        Houston, TX office with virtual tax services nationwide
                       </p>
                     </div>
                     <div className="rounded-2xl border border-amber-200/10 bg-black/35 p-5">
@@ -1136,8 +1136,8 @@ export default function NewLegacyTaxServicesPrototype() {
                         Get tax tips and updates by email
                       </div>
                       <p className="mt-2 text-sm leading-relaxed text-zinc-300/90">
-                        Join our mailing list for reminders, tax-season updates, and helpful
-                        business and filing insights.
+                        Join our mailing list for Houston tax reminders, tax-season updates, and
+                        helpful business and filing insights.
                       </p>
                     </div>
 
