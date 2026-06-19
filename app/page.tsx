@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import NewLegacyTaxServicesPrototype from "./components/NewLegacyTaxServicesPrototype";
 
 export const metadata: Metadata = {
-  title: "Tax Services in Houston, TX | New Legacy Tax Services",
+  title: "Houston Tax Services with Virtual Nationwide Support | New Legacy Tax Services",
   description:
-    "Houston tax services for individuals and small businesses, including tax preparation, bookkeeping, LLC formation, and EIN registration. Virtual nationwide support.",
+    "Houston tax services for individuals and small businesses, with virtual nationwide support for tax preparation, bookkeeping, LLC formation, and EIN registration.",
   alternates: {
     canonical: "https://newlegacytaxservice.com/",
   },
   openGraph: {
-    title: "Tax Services in Houston, TX | New Legacy Tax Services",
+    title: "Houston Tax Services with Virtual Nationwide Support | New Legacy Tax Services",
     description:
-      "Houston tax services for individuals and small businesses, including tax preparation, bookkeeping, LLC formation, and EIN registration.",
+      "Houston tax services for individuals and small businesses, with virtual nationwide support for tax preparation, bookkeeping, LLC formation, and EIN registration.",
     url: "https://newlegacytaxservice.com/",
     siteName: "New Legacy Tax Services",
     locale: "en_US",

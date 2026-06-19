@@ -720,13 +720,14 @@ export default function NewLegacyTaxServicesPrototype() {
                 </div>
 
                 <h1 className="mt-5 text-4xl font-semibold leading-[1.05] text-zinc-50 sm:text-5xl">
-                  Houston <Accent>tax services</Accent> for a stronger financial future.
+                  Houston <Accent>tax services</Accent> with virtual support nationwide.
                 </h1>
 
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-300/90 sm:text-lg">
                   Based in Houston, New Legacy Tax Services provides accurate, affordable, and
                   stress-free tax preparation for individuals and small businesses, along with
-                  bookkeeping, LLC formation, and EIN registration support.
+                  bookkeeping, LLC formation, and EIN registration support for clients across the
+                  country.
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -911,7 +912,7 @@ export default function NewLegacyTaxServicesPrototype() {
                 Services designed to keep things <Accent>easy</Accent>.
               </>
             }
-            desc="Houston tax preparation, bookkeeping, and business setup support for individuals, entrepreneurs, and small businesses."
+            desc="Houston tax preparation, bookkeeping, and business setup support with virtual nationwide service for individuals, entrepreneurs, and small businesses."
           >
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {serviceItems.map((service) => (
