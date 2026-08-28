@@ -1,0 +1,31 @@
+/* Header logo cleanup: remove all decorative glow/shadow layers. */
+#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* The original header markup includes two decorative amber glow layers. */
+#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center > div {
+  display: none !important;
+  opacity: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
+/* The supplied full logo is rendered as the wrapper background; suppress the old image and its drop shadow. */
+#top header a[aria-label="New Legacy Tax Services"] img {
+  opacity: 0 !important;
+  filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+#top header a[aria-label="New Legacy Tax Services"]:hover,
+#top header a[aria-label="New Legacy Tax Services"]:hover > div.relative.flex.items-center,
+#top header a[aria-label="New Legacy Tax Services"]:focus,
+#top header a[aria-label="New Legacy Tax Services"]:focus > div.relative.flex.items-center {
+  filter: none !important;
+  box-shadow: none !important;
+}
