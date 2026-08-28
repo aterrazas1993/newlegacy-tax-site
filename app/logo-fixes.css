@@ -1,22 +1,99 @@
-/* Logo-specific overrides */
+/* Header logo cleanup: no baked-in background, no halo, no shadow. */
 
-/* Remove the decorative amber glow and box-shadow layers behind the header logo. */
-#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center > div {
-  display: none !important;
+#top header a[aria-label="New Legacy Tax Services"] {
+  isolation: isolate;
 }
 
-/* Remove the image drop shadow so the logo sits cleanly on black. */
-#top header a[aria-label="New Legacy Tax Services"] img {
+/* Kill the old full-image background that contained the visible box/glow. */
+#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center {
+  background-image: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Remove every decorative glow layer around the emblem. */
+#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center > div {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
   filter: none !important;
 }
 
+/* Re-use the transparent gold SVG emblem already in the header. */
+#top header a[aria-label="New Legacy Tax Services"] img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  max-width: none !important;
+}
+
+/* Bring the company name back as clean gold text instead of using an opaque image. */
+#top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight {
+  display: block !important;
+}
+
+#top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div {
+  background-image: linear-gradient(
+    90deg,
+    #5a420f 0%,
+    #b8860b 18%,
+    #d4af37 32%,
+    #fff3b0 46%,
+    #f2d36b 55%,
+    #fff3b0 64%,
+    #d4af37 78%,
+    #b8860b 92%,
+    #5a420f 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+}
+
 @media (max-width: 639px) {
+  /* Center the complete logo lockup on mobile. */
+  #top header > div {
+    align-items: center !important;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 0.55rem !important;
+    text-align: center !important;
+  }
+
   #top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center {
-    box-shadow: none !important;
-    filter: none !important;
+    justify-content: center !important;
   }
 
   #top header a[aria-label="New Legacy Tax Services"] img {
-    filter: none !important;
+    width: auto !important;
+    height: 6.1rem !important;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div:first-child {
+    font-size: 1.08rem !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.1 !important;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div:last-child {
+    margin-top: 0.18rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.25em !important;
+    line-height: 1.2 !important;
   }
 }
