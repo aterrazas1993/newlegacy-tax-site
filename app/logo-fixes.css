@@ -1,0 +1,22 @@
+/* Logo-specific overrides */
+
+/* Remove the decorative amber glow and box-shadow layers behind the header logo. */
+#top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center > div {
+  display: none !important;
+}
+
+/* Remove the image drop shadow so the logo sits cleanly on black. */
+#top header a[aria-label="New Legacy Tax Services"] img {
+  filter: none !important;
+}
+
+@media (max-width: 639px) {
+  #top header a[aria-label="New Legacy Tax Services"] > div.relative.flex.items-center {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] img {
+    filter: none !important;
+  }
+}
