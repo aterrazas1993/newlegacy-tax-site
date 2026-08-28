@@ -124,3 +124,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Client-requested mobile hero refinements */
+@media (max-width: 639px) {
+  /* Remove the decorative gold glow/grid layers so the mobile hero reads as solid black. */
+  #top > .relative > div[aria-hidden="true"] {
+    display: none !important;
+  }
+
+  /* Increase the mobile brand lockup without changing tablet/desktop sizing. */
+  #top header a[aria-label="New Legacy Tax Services"] {
+    gap: 0.875rem;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] img {
+    height: 3.25rem;
+    width: auto;
+    max-width: none;
+  }
+
+  /* Render both lines of the company name in the same polished gold treatment. */
+  #top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div {
+    background-image: linear-gradient(
+      90deg,
+      #5a420f 0%,
+      #b8860b 18%,
+      #d4af37 32%,
+      #fff3b0 46%,
+      #f2d36b 55%,
+      #fff3b0 64%,
+      #d4af37 78%,
+      #b8860b 92%,
+      #5a420f 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 14px rgba(212, 175, 55, 0.16);
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div:first-child {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+
+  #top header a[aria-label="New Legacy Tax Services"] > div.block.leading-tight > div:last-child {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+}
