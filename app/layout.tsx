@@ -32,6 +32,43 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                const oldEmail = "oscarcortes@newlegacyfinancial.net";
+                const newEmail = "info@newlegacyfinancial.net";
+
+                const replaceEmail = () => {
+                  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+                  const nodes = [];
+                  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+                  nodes.forEach((node) => {
+                    if (node.nodeValue && node.nodeValue.includes(oldEmail)) {
+                      node.nodeValue = node.nodeValue.replaceAll(oldEmail, newEmail);
+                    }
+                  });
+
+                  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+                    if (link.getAttribute('href')?.includes(oldEmail)) {
+                      link.setAttribute('href', 'mailto:' + newEmail);
+                    }
+                  });
+                };
+
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', replaceEmail);
+                } else {
+                  replaceEmail();
+                }
+
+                const observer = new MutationObserver(replaceEmail);
+                observer.observe(document.body, { childList: true, subtree: true });
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );
