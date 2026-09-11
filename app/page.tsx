@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NewLegacyTaxServicesPrototype from "./components/NewLegacyTaxServicesPrototype";
+import NewsletterPopup from "./components/NewsletterPopup";
 
 export const metadata: Metadata = {
   title: "Houston Tax Services with Virtual Nationwide Support | New Legacy Tax Services",
@@ -90,6 +91,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <NewLegacyTaxServicesPrototype />
+      <NewsletterPopup />
     </>
   );
 }
