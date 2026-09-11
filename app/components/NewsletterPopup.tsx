@@ -2,23 +2,19 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-const DISMISSAL_KEY = "nlt_newsletter_popup_dismissed";
+const DISMISSAL_KEY = "nlt_newsletter_popup_dismissed_v2";
 
 export default function NewsletterPopup() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     try {
-      if (window.localStorage.getItem(DISMISSAL_KEY)) return;
-
-      const timer = window.setTimeout(() => setIsOpen(true), 20000);
-      return () => window.clearTimeout(timer);
+      if (window.localStorage.getItem(DISMISSAL_KEY)) setIsOpen(false);
     } catch {
-      const timer = window.setTimeout(() => setIsOpen(true), 20000);
-      return () => window.clearTimeout(timer);
+      // The CSS reveal still works when storage is unavailable.
     }
   }, []);
 
@@ -71,24 +67,41 @@ export default function NewsletterPopup() {
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="newsletter-title"
-    >
+    <>
+      <style>{`
+        @keyframes nlt-popup-reveal {
+          to { opacity: 1; visibility: visible; pointer-events: auto; }
+        }
+        .nlt-newsletter-popup {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          animation: nlt-popup-reveal .35s ease-out 20s forwards;
+        }
+        #newsletter-popup-dismissed:target + .nlt-newsletter-popup { display: none; }
+        @media (prefers-reduced-motion: reduce) {
+          .nlt-newsletter-popup { animation-delay: 0s; }
+        }
+      `}</style>
+      <span id="newsletter-popup-dismissed" />
+      <div
+        className="nlt-newsletter-popup fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="newsletter-title"
+      >
       <section className="relative w-full max-w-md overflow-hidden rounded-[28px] border border-[#d7a936]/70 bg-[#090909] px-6 py-8 shadow-[0_24px_90px_rgba(0,0,0,0.7),0_0_42px_rgba(215,169,54,0.16)] sm:px-9">
         <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,#b87d1c,#fff078,#b87d1c)]" />
         <div aria-hidden className="absolute -right-24 -top-24 h-48 w-48 rounded-full bg-[#d7a936]/10 blur-3xl" />
 
-        <button
-          type="button"
+        <a
+          href="#newsletter-popup-dismissed"
           onClick={closePopup}
           className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-white/10 text-xl leading-none text-zinc-300 transition hover:border-[#d7a936]/60 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#fff078]/50"
           aria-label="Close signup form"
         >
           &times;
-        </button>
+        </a>
 
         <div className="relative text-center">
           <img
@@ -137,6 +150,7 @@ export default function NewsletterPopup() {
           <p className="mt-5 text-xs text-zinc-500">No spam. Unsubscribe anytime.</p>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
