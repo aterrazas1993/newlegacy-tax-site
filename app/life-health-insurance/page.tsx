@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
-const quoteUrl = "https://form.jotform.com/oscarcortes/LifeInsuranceQuote";
-const contactUrl = "mailto:info@newlegacyfinancial.net?subject=Health%20insurance%20options";
+const insuranceQuoteUrl = "https://form.jotform.com/oscarcortes/InsuranceQuote";
 
 export const metadata: Metadata = {
   title: "Life & Health Insurance | New Legacy Tax Services",
@@ -60,7 +59,7 @@ export default function LifeHealthInsurancePage() {
             <div className="mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#d4af37]"><span className="h-px w-8 bg-[#6b4b0d]" /> Life & Health Insurance</div>
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-6xl lg:text-7xl">Protect what matters.<br /><GoldText>Plan for what’s next.</GoldText></h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#bdbdc2] sm:text-lg">Your family, your health, and your financial future deserve thoughtful protection. Explore life insurance and ask our team about health insurance options that may fit your needs.</p>
-            <div className="mt-9 flex flex-wrap gap-3"><Action href={quoteUrl}>Request a Life Insurance Quote</Action><Action href={contactUrl} secondary>Ask About Health Insurance</Action></div>
+            <div className="mt-9 flex flex-wrap gap-3"><Action href={insuranceQuoteUrl}>Request a Life Insurance Quote</Action><Action href={insuranceQuoteUrl} secondary>Request a Health Insurance Quote</Action></div>
             <p className="mt-5 text-xs text-[#88888c]">Requesting information does not obligate you to purchase coverage.</p>
           </div>
         </section>
@@ -74,14 +73,14 @@ export default function LifeHealthInsurancePage() {
               <h3 className="mt-5 text-2xl font-semibold">Life Insurance</h3>
               <p className="mt-4 leading-7 text-[#bdbdc2]">Life insurance can help provide financial support to your beneficiaries if you die. Depending on the policy, benefits may help with housing costs, everyday bills, debts, children’s needs, and final expenses.</p>
               <p className="mt-4 leading-7 text-[#bdbdc2]">Already covered through work? It may be useful to review how much coverage you have and what happens if your employment changes.</p>
-              <div className="mt-7"><Action href={quoteUrl}>Get a Free Life Insurance Quote</Action></div>
+              <div className="mt-7"><Action href={insuranceQuoteUrl}>Get a Free Life Insurance Quote</Action></div>
             </article>
             <article className="rounded-2xl border border-[#221a04] bg-[#0d0d0d] p-7 sm:p-9">
               <span className="text-xs font-semibold tracking-[0.2em] text-[#d4af37]">02 / EVERYDAY WELLBEING</span>
               <h3 className="mt-5 text-2xl font-semibold">Health Insurance</h3>
               <p className="mt-4 leading-7 text-[#bdbdc2]">Health coverage is personal. Your budget, preferred doctors, prescriptions, and household needs can all affect which option makes sense for you.</p>
               <p className="mt-4 leading-7 text-[#bdbdc2]">Tell us what you’re looking for. We can discuss available options and help you identify the next steps for a coverage review.</p>
-              <div className="mt-7"><Action href={contactUrl} secondary>Ask About Health Coverage</Action></div>
+              <div className="mt-7"><Action href={insuranceQuoteUrl} secondary>Request a Health Insurance Quote</Action></div>
             </article>
           </div>
         </section>
@@ -101,7 +100,7 @@ export default function LifeHealthInsurancePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#d4af37]">New Legacy</p>
           <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold sm:text-5xl">The next chapter starts with <GoldText>peace of mind.</GoldText></h2>
           <p className="mx-auto mt-5 max-w-xl leading-7 text-[#bdbdc2]">Explore protection for your family and your health with a team ready to answer your questions.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3"><Action href={quoteUrl}>Request a Life Quote</Action><Action href={contactUrl} secondary>Contact Us About Health</Action></div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3"><Action href={insuranceQuoteUrl}>Request a Life Quote</Action><Action href={insuranceQuoteUrl} secondary>Request a Health Quote</Action></div>
         </section>
       </main>
 
