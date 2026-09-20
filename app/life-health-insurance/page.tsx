@@ -28,7 +28,7 @@ function GoldText({ children }: { children: React.ReactNode }) {
 function Action({ href, children, secondary = false }: { href: string; children: React.ReactNode; secondary?: boolean }) {
   return (
     <a href={href} target={href.startsWith("https://form.") ? "_blank" : undefined} rel={href.startsWith("https://form.") ? "noopener noreferrer" : undefined}
-      className={`inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-center text-sm font-semibold transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] ${secondary ? "border border-[#6b4b0d] bg-[#0d0d0d] text-[#f2d36b]" : `${gold} text-black`}`}>
+      className={`inline-flex min-h-12 w-full items-center justify-center rounded-full px-6 py-3 text-center text-sm font-semibold transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af37] sm:w-auto ${secondary ? "border border-[#6b4b0d] bg-[#0d0d0d] text-[#f2d36b]" : `${gold} text-black`}`}>
       {children} <span aria-hidden className="ml-2">↗</span>
     </a>
   );
@@ -41,15 +41,15 @@ export default function LifeHealthInsurancePage() {
         Houston, Texas <span className="mx-2 text-[#6b4b0d]">•</span> Questions? <a className="text-[#f2d36b] hover:underline" href="tel:8327183887">832-718-3887</a>
       </div>
       <header className="border-b border-[#1a1608] bg-[#080808]">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-5 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-5 py-5 sm:px-8 lg:flex-row">
           <Link href="/" aria-label="New Legacy Tax Services home" className="flex items-center gap-3">
             <Image src="/newlegacygold.svg" alt="" width={68} height={56} className="h-11 w-auto sm:h-14" />
             <span className="text-xs font-semibold uppercase leading-snug tracking-[0.15em] sm:text-sm"><GoldText>New Legacy<br />Tax Services</GoldText></span>
           </Link>
-          <nav aria-label="Main navigation" className="flex items-center gap-5 text-xs sm:text-sm">
-            <Link className="text-[#c8c8c8] hover:text-white" href="/">Home</Link>
-            <Link className="text-[#c8c8c8] hover:text-white" href="/#services">Tax Services</Link>
-            <span aria-current="page" className="text-[#f2d36b]">Life & Health</span>
+          <nav aria-label="Main navigation" className="flex w-full flex-wrap items-center justify-center gap-2 border-t border-[#1a1608] pt-4 text-xs sm:gap-5 sm:text-sm lg:w-auto lg:border-0 lg:pt-0">
+            <Link className="rounded-full px-2 py-2 text-[#c8c8c8] hover:text-white focus-visible:outline-2 focus-visible:outline-[#d4af37]" href="/">Home</Link>
+            <Link className="rounded-full px-2 py-2 text-[#c8c8c8] hover:text-white focus-visible:outline-2 focus-visible:outline-[#d4af37]" href="/#services">Tax Services</Link>
+            <span aria-current="page" className="rounded-full border border-[#6b4b0d] bg-[#0d0d0d] px-3 py-2 font-semibold text-[#f2d36b]">Life &amp; Health</span>
           </nav>
         </div>
       </header>
