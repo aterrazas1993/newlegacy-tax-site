@@ -660,6 +660,7 @@ export default function NewLegacyTaxServicesPrototype() {
             <nav className="hidden items-center gap-6 text-sm text-zinc-300/90 md:flex">
               {[
                 ["Services", "#services"],
+                ["Life & Health", "/life-health-insurance"],
                 ["Why Us", "#why"],
                 ["Process", "#process"],
                 ["FAQ", "#faq"],
@@ -673,6 +674,10 @@ export default function NewLegacyTaxServicesPrototype() {
                 </a>
               ))}
             </nav>
+
+            <a href="/life-health-insurance" className="rounded-full border border-[#6b4b0d] px-4 py-2 text-xs font-semibold text-[#f2d36b] hover:bg-[#0d0d0d] md:hidden">
+              Life & Health Insurance
+            </a>
 
             <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
               <a
@@ -923,6 +928,11 @@ export default function NewLegacyTaxServicesPrototype() {
                   href={service.href}
                 />
               ))}
+              <Service
+                title="Life & Health Insurance"
+                desc="Explore protection for your family and ask about health coverage options."
+                href="/life-health-insurance"
+              />
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
