@@ -628,7 +628,7 @@ export default function NewLegacyTaxServicesPrototype() {
         </div>
 
         <header className="relative z-10">
-          <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-5 lg:flex-row lg:justify-between lg:px-6">
             <a
               href="#top"
               aria-label="New Legacy Tax Services"
@@ -657,7 +657,7 @@ export default function NewLegacyTaxServicesPrototype() {
               </div>
             </a>
 
-            <nav className="hidden items-center gap-6 text-sm text-zinc-300/90 md:flex">
+            <nav aria-label="Main navigation" className="hidden items-center gap-4 text-sm text-zinc-300/90 lg:flex xl:gap-6">
               {[
                 ["Services", "#services"],
                 ["Why Us", "#why"],
@@ -672,14 +672,25 @@ export default function NewLegacyTaxServicesPrototype() {
                   {label}
                 </a>
               ))}
+              <a
+                href="/life-health-insurance"
+                className="whitespace-nowrap rounded-full border border-[#6b4b0d] bg-[#0d0d0d] px-4 py-2 font-semibold text-[#f2d36b] transition hover:border-[#d4af37] hover:bg-[#171205] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]"
+              >
+                Life &amp; Health Insurance
+              </a>
             </nav>
 
-            <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
+            <nav aria-label="Mobile navigation" className="flex w-full items-center justify-center gap-3 border-t border-[#1a1608] pt-4 text-xs sm:text-sm lg:hidden">
+              <a href="#services" className="rounded-full px-3 py-3 text-zinc-200 hover:text-white focus-visible:outline-2 focus-visible:outline-[#d4af37]">Tax Services</a>
+              <a href="/life-health-insurance" className="rounded-full border border-[#6b4b0d] bg-[#0d0d0d] px-4 py-3 font-semibold text-[#f2d36b] transition hover:border-[#d4af37] focus-visible:outline-2 focus-visible:outline-[#d4af37]">Life &amp; Health Insurance</a>
+            </nav>
+
+            <div className="hidden flex-wrap items-center gap-2 lg:flex">
               <a
                 href="https://form.jotform.com/oscarcortes/NLF"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex"
+                className="inline-flex"
               >
                 <Button variant="outline">Client intake form</Button>
               </a>
@@ -923,6 +934,11 @@ export default function NewLegacyTaxServicesPrototype() {
                   href={service.href}
                 />
               ))}
+              <Service
+                title="Life & Health Insurance"
+                desc="Explore protection for your family and ask about health coverage options."
+                href="/life-health-insurance"
+              />
             </div>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
